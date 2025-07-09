@@ -1,0 +1,86 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <body>
+
+                <h2>hy you can edit land record here</h2>
+
+                <form method="post" action="/listing/<%= listings._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                    <div class="mb-2">
+                        <label for="title" class="form-label">title</label>
+                        <input type="text" value="<%= listings.title %> " name="listings[title]" class="form-control" required>
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                            <div class="invalid-feedback" >
+                                please enter a  good title 
+                                </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="form-label">description</label>
+
+                        <input type="text" value="<%=listings.description %>" name="listings[description]"
+                            class="form-control" required>
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                            <div class="invalid-feedback">
+                                please enter a  good description
+                                </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="url" class="form-label">upload new image</label>
+                        <input type="file" name="listings[image]"
+                            class="form-control" >
+                        
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                            <div class="invalid-feedback">
+                                please enter a  valid image
+                                </div>
+                    </div>
+                    <div class="row row-cols-md-2 row-cols-sm-1">
+                        <div class="mb-2 col-4">
+                            <label for="price" class="form-label">price</label>
+                            <input type="number" value="<%=listings.price  %>" name="listings[price]"
+                                class="form-control" required>
+                                <div class="valid-feedback">
+                                    looks good
+                                </div>
+                                <div class="invalid-feedback">
+                                    please enter a  valid price
+                                    </div>
+                        </div>
+                        <div class="mb-2 col-8">
+                            <label for="country" class="form-label">country</label>
+                            <input type="text" value="<%= listings.country %>" name="listings[country]"
+                                class="form-control" required>
+                                <div class="valid-feedback">
+                                    looks good
+                                </div>
+                                <div class="invalid-feedback">
+                                    please enter a country name
+                                    </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="location" class="form-label">location</label>
+                        <input type="text" value="<%= listings.location %>" name="listings[location]"
+                            class="form-control" required>
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                            <div class="invalid-feedback">
+                                please enter a  valid location
+                                </div>
+                    </div>
+
+                    <button class="btn btn-dark edit-btn"> edit</button>
+
+                </form>
+
+            </body>
+        </div>
+    </div>

@@ -1,0 +1,109 @@
+<!-- <% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+        <div class="col-8 offset-2">
+<form action="/login" method="post" class="needs-validation" novalidate>
+    <h3 class="col-8 offset-2">Login here</h3>
+      <div class="mb-2">
+                        <label for="username" class="form-label">username</label>
+                        <input type="text" id="catch" placeholder="Enter  username" name="username" class="form-control" required />
+                    
+                    <div class="valid-feedback">
+                        looks good
+                    </div>
+                    <div class="invalid-feedback">
+                        please enter a valid username
+                        </div>
+                </div>
+      
+      <div class="mb-2">
+                        <label for="password" class="form-label">password</label>
+                        <input type="password" id="catch" placeholder="Enter  password" name="password" class="form-control" required />
+                    
+                    <div class="valid-feedback">
+                        looks good
+                    </div>
+                    <div class="invalid-feedback">
+                        please enter a strong password       
+                                     </div>
+                </div>
+                <button class="btn btn-success">Login</button>
+</form>
+            </div>
+            </div>   -->
+            <% layout("/layouts/boilerplate") %>
+
+<div class="row justify-content-center mt-3">
+  <div class="col-md-6">
+    <div class="card shadow login-animation bg-dark text-white">
+      <div class="card-header bg-black py-3">
+        <h4 class="text-center mb-0">Login</h4>
+      </div>
+      <div class="card-body p-3">
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              placeholder="Enter username" 
+              name="username" 
+              class="form-control bg-dark text-white border-secondary" 
+              required 
+            />
+            <div class="valid-feedback">
+              Looks good
+            </div>
+            <div class="invalid-feedback">
+              Please enter a valid username
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Enter password" 
+              name="password" 
+              class="form-control bg-dark text-white border-secondary" 
+              required 
+            />
+            <div class="valid-feedback">
+              Looks good
+            </div>
+            <div class="invalid-feedback">
+              Please enter your password
+            </div>
+          </div>
+          
+          <button class="btn btn-success w-100">Login</button>
+          
+          <div class="mt-3 text-center">
+            <small class="text-white">Don't have an account? <a href="/signup" class="text-info">Sign up</a></small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #212529;
+  }
+  
+  .login-animation {
+    animation: dropIn 0.6s forwards;
+  }
+  
+  @keyframes dropIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

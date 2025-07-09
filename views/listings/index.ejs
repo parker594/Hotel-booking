@@ -1,0 +1,107 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+ #filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .filter {
+    font-size: 1rem;
+    padding: 19px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.8;
+    text-decoration: none;
+    color: inherit;
+  }
+  .filter:hover, .filter.active {
+    opacity: 1;
+    background-color: #f8f9fa;
+  }
+  .taxinfo{
+    display: none;
+  }
+  .tax-toggle {
+   border: #f4f5f7 1px solid;
+   border-radius: 15px;
+    padding: 20px;
+    margin-top: 8px;
+    
+  }
+</style>
+ <div id="filters">
+  <a href="/listing" class="filter <%= !selectedCategory ? 'active' : '' %>">
+    <i class="fa-solid fa-fire"></i><br>Trending
+  </a>
+  <a href="/listing/category/rooms" class="filter <%= selectedCategory === 'rooms' ? 'active' : '' %>">
+    <i class="fa-solid fa-home"></i><br>Rooms
+  </a>
+  <a href="/listing/category/iconic-cities" class="filter <%= selectedCategory === 'iconic-cities' ? 'active' : '' %>">
+    <i class="fa-solid fa-city"></i><br>Iconic Cities
+  </a>
+  <a href="/listing/category/mountains" class="filter <%= selectedCategory === 'mountains' ? 'active' : '' %>">
+    <i class="fa-solid fa-mountain"></i><br>Mountains
+  </a>
+  <a href="/listing/category/castles" class="filter <%= selectedCategory === 'castles' ? 'active' : '' %>">
+    <i class="fa-solid fa-chess-rook"></i><br>Castles
+  </a>
+  <a href="/listing/category/amazing-pools" class="filter <%= selectedCategory === 'amazing-pools' ? 'active' : '' %>">
+    <i class="fa-solid fa-swimmer"></i><br>Amazing Pools
+  </a>
+  <a href="/listing/category/camping" class="filter <%= selectedCategory === 'camping' ? 'active' : '' %>">
+    <i class="fa-solid fa-campground"></i><br>Camping
+  </a>
+  <a href="/listing/category/farms" class="filter <%= selectedCategory === 'farms' ? 'active' : '' %>">
+    <i class="fa-solid fa-tractor"></i><br>Farms
+  </a>
+  <a href="/listing/category/arctic" class="filter <%= selectedCategory === 'arctic' ? 'active' : '' %>">
+    <i class="fa-solid fa-snowflake"></i><br>Arctic
+  </a>
+  <div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" >
+  <label class="form-check-label" for="switchCheckDefault">Display  with taxes</label>
+</div>
+</div>
+</div>
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+    
+<body>
+
+<% for (let listing of listings) { %>
+<a href="/listing/<%= listing._id %>" class="listing-link">
+    <div class="card listing-card mt-2" style="width: 23rem;" >
+        <img src="<%= listing.image.url %>" class="card-img-top" style="height: 20rem" alt="wait bro">
+        <div class="card-img-overlay">abcd</div>
+        <div class="card-body">
+         <b> <p class="card-text"><%= listing.title %> <br/></b>
+           &#8377;<%=  (listing.price||0).toLocaleString("en-IN") %>  <i class="taxinfo"> +18% gst</i> /night</p>
+            
+          <p class="card-text"><%= listing.description %></p>
+         
+        </div>
+      </div>
+     </a> 
+    <% } %>  
+
+</body>
+</div>
+<script>
+  let taxswitch = document.getElementById("switchCheckDefault");
+  taxswitch.addEventListener("change", function() {
+let tax=document.getElementsByClassName("taxinfo")
+console.log(tax);
+for(info of tax){
+  if (taxswitch.checked) {
+    info.style.display = "inline";
+  } else {
+    info.style.display = "none";
+  }
+}
+  });
+</script>

@@ -1,0 +1,179 @@
+/* 
+ */
+
+ .navbar{
+ height: 5rem; 
+ background-color: white;
+ 
+}
+ .fas{
+    color: brown;
+    font-size: larger;
+ }
+ .nav-link{
+    color: black !important; 
+ }
+ .f-info-links a{
+   text-decoration: none;
+   color: black !important;
+   font-size: 1rem;
+   width: 100%;
+ }
+   .f-info-links:hover{
+      color: rgb(42, 128, 165) !important;
+      text-decoration: underline;
+   }
+   .f-info-socials{
+      width: 100%;
+      font-size: 1.3rem;
+      margin: y 0.2rem;
+
+   }
+   .f-info{
+      display: flex;
+      flex-wrap: wrap;
+      background-color: rgb(177, 147, 112);
+      height: 4rem;
+      justify-content: center;
+      text-align: center;
+   }
+   .fa-brands{
+    color: inherit;
+    text-decoration: none;
+      color: #36070f
+   }
+  .listing-card{
+   border: none !important;
+   margin-bottom: 2rem;
+    
+  }
+  .card-img-top{
+   border-radius: 2rem !important;
+   width : 100% !important;
+   object-fit: cover !important;
+  }
+  .card-body{
+   padding: 0rem;
+  
+  }
+  .listing-link{
+   text-decoration: none;
+  }
+  .card-img-overlay{
+   opacity: 0 !important;
+  }
+  .card-img-overlay:hover{
+   opacity: 0.2 !important;
+   background-color: white;
+  }
+  body{
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+  }
+  .container{
+   flex: 1;
+  }
+  .add-btn{
+background-color: saddlebrown !important;
+border: none !important;
+  }
+  .edit-btn{
+   background-color: rgb(167, 96, 16) !important;
+   border: none !important;
+  }
+  .show-img{
+   height: 40vh;
+
+  }
+  .btns{
+   display: flex;
+  }
+  .show.card{
+padding-left: 0%;
+padding-right: 0%;
+
+  }
+  .review {
+   border: 1px solid #e0e0e0;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease;
+ }
+ 
+ .review:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .review .card-body {
+   padding: 1.25rem;
+ }
+ 
+ .review-container {
+   margin-top: 2rem;
+ }
+ .star {
+   color: #ffc107;
+   font-size: 1.2rem;
+ }
+ 
+ .star-empty {
+   color: #e4e5e9;
+   font-size: 1.2rem;
+ }
+ .star-rating {
+   margin-bottom: 3px;
+   margin-top: auto;
+ }
+ .comment-text {
+   display: -webkit-box;
+   -webkit-line-clamp: 2;  /* Show only 2 lines initially */
+   line-clamp: 2;          /* Standard property for compatibility */
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   transition: all 0.3s ease;
+ }
+ 
+ .comment-text.expanded {
+   display: block;  /* Show full text when expanded */
+   -webkit-line-clamp: initial;
+   line-clamp: initial;
+ }
+ 
+ .read-more-btn {
+   color: #0d6efd;
+   cursor: pointer;
+   font-size: 0.9rem;
+   text-decoration: none;
+ }
+ 
+ .read-more-btn:hover {
+   text-decoration: underline;
+ }
+ 
+ /* Make sure review cards can expand */
+ .card {
+   transition: all 0.3s ease;
+ }
+ .review-star-rating {
+  direction: rtl;
+  display: inline-flex;
+  margin-bottom: 0.5rem;
+}
+
+.review-star-rating input[type="radio"] {
+  display: none;
+}
+
+.review-star-rating label {
+  font-size: 1rem;
+  color: #ddd; /* empty star color */
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.review-star-rating input[type="radio"]:checked ~ label,
+.review-star-rating label:hover,
+.review-star-rating label:hover ~ label {
+  color: #ffc107; /* yellow for selected and hover */
+}

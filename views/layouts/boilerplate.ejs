@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body>
+   <%- include("../includes/navbar.ejs") %>
+  
+    <div class ="container">
+      <%    if(success && success.length>0){%>
+      <div class="alert alert-success alert alert-warning alert-dismissible fade show col-6 offset-3" role="alert">
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <%= success %>
+</div>
+<%  }%> 
+      <%    if(error && error.length > 0){%>
+      <div class="alert alert-danger alert alert-warning alert-dismissible fade show col-6 offset-3" role="alert">
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <%= error %>
+  </div>
+<%  }%> 
+
+       <!-- <%- include("../includes/flash.ejs") %> -->
+<%- body %>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const readMoreButtons = document.querySelectorAll('.read-more-btn');
+          
+          readMoreButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              const commentText = this.closest('.comment-container').querySelector('.comment-text');
+              commentText.classList.toggle('expanded');
+              this.textContent = commentText.classList.contains('expanded') ? 'Read less' : 'Read more';
+            });
+          });
+        });
+      </script>
+</body>
+</html>
