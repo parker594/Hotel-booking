@@ -5,8 +5,8 @@ const expresserror=require('../utils/expresserror.js');
 const { listingschema ,reviewschema} = require('../shemajoi.js');
 const listing=require('../models/shema.js');
 const review=require('../models/review.js');
-const {  isloggedin}=require('../middileware.js');
-const {  isowner,validatelisting}=require('../middileware.js');
+
+const { isloggedin, isowner,validatelisting}=require('../middileware.js');
 const listingowner=require("../controlers/listings.js");
 const multer  = require('multer')
 const { storage } = require('../cloudconfig.js'); // Assuming you have a cloudconfig.js for cloudinary
@@ -63,7 +63,7 @@ router.get('/:id', wrapasync(async (req,res)=>{
     res.render('listings/show.ejs',{listings});
 }));
 
-router.get("/:id/edit", isloggedin,isowner,wrapasync( async (req, res,next) => {
+router.get("/:id/edit",isowner, isloggedin,wrapasync( async (req, res,next) => {
    let { id } = req.params;
    const listings = await listing.findById(id);
    if (!listings){

@@ -1,4 +1,4 @@
- if (!process.env.NOde_ENV!== 'production') {
+ if (process.env.NOde_ENV!== 'production') {
    require('dotenv').config();
  console.log(process.env.SECRET);
  }
