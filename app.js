@@ -94,10 +94,9 @@ app.use((req,res,next)=>{
    next();
 })
 app.get('/favicon.ico', (req, res) => res.status(204).send());
-// app.get('/',wrapasync((req,res,next)=>{
-//     console.log("your app is running")
-//     res.send('your app is running')
-//  }))//listings
+app.get('/',wrapasync((req,res,next)=>{
+ res.redirect('/listing');
+ }))//listings
 
 // app.get("/demouser", async(req, res) => {
 //    let fakeuser={
