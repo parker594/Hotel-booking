@@ -1,41 +1,290 @@
 <style>
-.btn-search {
-  background-color: #cd6767;
-  color: white;
-  border: none;
-  display: inline;
+/* Modern Airbnb-inspired Navbar */
+.airbnb-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
+.navbar-brand-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FF385C !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand-logo:hover {
+  color: #E31C5F !important;
+}
+
+/* Search Bar Container */
+.search-container {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 2rem;
+}
+
+.search-bar {
+  background: white;
+  border: 1px solid #DDDDDD;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.search-bar:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.search-bar:focus-within {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #717171;
+}
+
+.search-btn {
+  background: #FF385C;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: #E31C5F;
+  transform: scale(1.05);
+}
+
+/* User Menu */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.host-link {
+  color: #222222;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.host-link:hover {
+  background: #F7F7F7;
+  color: #222222;
+}
+
+.user-menu-btn {
+  background: white;
+  border: 1px solid #DDDDDD;
+  border-radius: 25px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.user-menu-btn:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.hamburger {
+  width: 16px;
+  height: 16px;
+  color: #717171;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #717171;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  min-width: 200px;
+}
+
+.dropdown-item {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: #F7F7F7;
+}
+
+.dropdown-divider {
+  margin: 0.5rem 0;
+  border-color: #EEEEEE;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .search-container {
+    display: none;
+  }
+  
+  .navbar-brand-logo {
+    font-size: 1.5rem;
+  }
+  
+  .host-link {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-container {
+    max-width: 300px;
+    margin: 0 1rem;
+  }
+}
+
+/* Mobile Search (appears when main search is hidden) */
+.mobile-search {
+  display: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .mobile-search {
+    display: block;
+  }
+  
+  .mobile-search .search-bar {
+    margin: 0 1rem;
+  }
+}
 </style>
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listing"><i class="fas fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!-- <a class="nav-link active" aria-current="page" href="/">Home</a> -->
-        <a class="nav-link" href="/listing">Explore More</a>
-          <a class="nav-link" href="/listing/extra">Add new land</a>
-        <!-- <a class="nav-link disabled" aria-disabled="true">extra lands</a> -->
+
+<nav class="navbar navbar-expand-lg airbnb-navbar">
+  <div class="container-fluid px-3">
+    <!-- Brand Logo -->
+    <a class="navbar-brand-logo" href="/listing">
+      <i class="fas fa-compass"></i>
+      WonderLand
+    </a>
+
+    <!-- Main Search Bar (Desktop) -->
+    <div class="search-container d-none d-md-block">
+      <form class="search-bar" role="search" action="/listing/search" method="GET">
+        <input 
+          class="search-input" 
+          type="search" 
+          name="query"
+          placeholder="Where are you going?" 
+          aria-label="Search destinations"
+        >
+        <button class="search-btn" type="submit" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- User Menu -->
+    <div class="user-menu">
+      <% if(curruser) { %>
+        <a href="/listing/extra" class="host-link">
+          <i class="fas fa-plus-circle me-1"></i>
+          Add Your Place
+        </a>
+      <% } %>
+
+      <!-- User Dropdown -->
+      <div class="dropdown">
+        <button class="user-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-bars hamburger"></i>
+          <div class="user-avatar">
+            <% if(curruser) { %>
+              <%= curruser.username.charAt(0).toUpperCase() %>
+            <% } else { %>
+              <i class="fas fa-user"></i>
+            <% } %>
+          </div>
+        </button>
+        
+        <ul class="dropdown-menu dropdown-menu-end">
+          <% if(!curruser) { %>
+            <li><a class="dropdown-item fw-semibold" href="/signup">Sign up</a></li>
+            <li><a class="dropdown-item" href="/login">Log in</a></li>
+          <% } else { %>
+            <li><a class="dropdown-item" href="/listing">
+              <i class="fas fa-home me-2"></i>Browse listings
+            </a></li>
+            <li><a class="dropdown-item" href="/listing/extra">
+              <i class="fas fa-plus me-2"></i>Host your place
+            </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">
+              <i class="fas fa-sign-out-alt me-2"></i>Log out
+            </a></li>
+          <% } %>
+        </ul>
       </div>
-      <div class="navbar-nav ms-auto">
-        <div class="navbar-nav ">
-    <form class="d-flex mt-2" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-search" type="submit">Search</button>
+    </div>
+  </div>
+
+  <!-- Mobile Search Bar -->
+  <div class="mobile-search">
+    <form class="search-bar" role="search" action="/listing/search" method="GET">
+      <input 
+        class="search-input" 
+        type="search" 
+        name="query"
+        placeholder="Where are you going?" 
+        aria-label="Search destinations"
+      >
+      <button class="search-btn" type="submit" aria-label="Search">
+        <i class="fas fa-search"></i>
+      </button>
     </form>
-    </div>
-        <% if(!curruser){%>
-       <button class="btn "> <a class="nav-link "  href="/signup"><b>Signup</b></a></button>
-        <button class="btn"><a class="nav-link" href="/login"><b>Login</b></a></button>
-       <% }  %> 
-       <% if(curruser){ %>
-        <button class="btn "><a class="nav-link" href="/logout">logout</a></button>
-        <% } %>
-      </div>
-    </div>
   </div>
 </nav>

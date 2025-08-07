@@ -1,15 +1,18 @@
- if (process.env.NOde_ENV!== 'production') {
+ if (process.env.NODE_ENV !== 'production') {
    require('dotenv').config();
- console.log(process.env.SECRET);
- }
+   console.log(process.env.SECRET);
+} else {
+   console.log('Running in production mode or local development');
+}
  
  const express=require ('express');
  const app=express();
  const mongoose=require('mongoose');
  const listing=require('./models/shema.js');
 //   const review=require('./models/review.js');
-//  const mongourl='mongodb://127.0.0.1:27017/wonderla';
-const dburl=process.env.mongoatlas ;
+const mongourl='mongodb://127.0.0.1:27017/wonderla';
+// const dburl=process.env.mongoatlas ;
+const dburl = mongourl; // Using local MongoDB
  const path=require('path');
  const ejs=require('ejs');
  const methodOverride = require('method-override');
@@ -56,18 +59,18 @@ app.set('views',path.join(__dirname,'views'));
    }
  }
   const store = MongoStore.create({
-   mongoUrl: dburl,
+   mongoUrl: dburl, // Now using local MongoDB
    collection: 'sessions',
    touchAfter: 24 * 3600, // time period in seconds
    crypto: {
-       secret:process.env.SECRET, // secret for encrypting session data
+       secret: process.env.SECRET || 'fallback-secret-key-for-local-dev', // Fallback for local development
  }  })
    store.on('error', ()=> {
    console.log('SESSION STORE ERROR');
    });
  const sessionoption = {
    store,
-   secret : process.env.SECRET ,
+   secret : process.env.SECRET || 'fallback-secret-key-for-local-dev', // Fallback for local development
    resave : false,
    saveUninitialized : true,
    cookie :{
