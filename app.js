@@ -11,7 +11,7 @@
  const listing=require('./models/shema.js');
 //   const review=require('./models/review.js');
 //const mongourl='mongodb://127.0.0.1:27017/wonderla';
- const dburl=process.env.mongoatlas ;
+const dburl=process.env.mongoatlas ;
 //const dburl = mongourl; // Using local MongoDB
  const path=require('path');
  const ejs=require('ejs');
